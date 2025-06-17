@@ -1,9 +1,9 @@
 import ballerina/time;
 
 type User record {|
-    int id;
+     readonly int id;
     string name;
-    time:Date bithDate;
+    time:Date birthDate;
     string mobileNumber;
 |};
 

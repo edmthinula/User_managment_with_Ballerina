@@ -51,12 +51,8 @@ service / on new http:Listener(9090) {
             return http:NOT_FOUND;
         }
         sql:ExecutionResult userupdate = check self.db->execute(
-            `UPDATE users 
-    SET name = ${user.name},
-        birthDate = ${user.birthDate},
-        mobileNumber = ${user.mobileNumber},
-    WHERE user_id = ${id}`);
-        if userupdate.affectedRowCount == 0 {
+            `UPDATE users SET name = ${user.name}, birthDate = ${user.birthDate}, mobileNumber = ${user.mobileNumber} WHERE id = ${id}`);
+        if userupdate.affectedRowCount == 0  {
             return error(string `User ${id} not created`);
         } else {
             return http:OK;

@@ -1,6 +1,4 @@
-import ballerina/mysql;
+import ballerinax/mysql;
+import ballerinax/mysql.driver as _;
 
-configurable string dbHost = "localhost";
-configurable string
-configurable string
-configurable string
+final mysql:Client UserPortalDb = check new ("localhost","root","root","bal",3306);

@@ -2,7 +2,9 @@
 org = "thinu"
 name = "User_managment_with_Ballerina"
 version = "0.1.0"
-distribution = "2201.12.4"
+distribution = "2201.8.6"
 
 [build-options]
 observabilityIncluded = true
+
+

@@ -3,6 +3,8 @@ import ballerina/sql;
 import ballerinax/mysql;
 import ballerinax/mysql.driver as _;
 
+import User_managment_with_Ballerina.database as db_fun ;
+
 service / on new http:Listener(9090) {
     final mysql:Client db;
 
@@ -11,10 +13,11 @@ service / on new http:Listener(9090) {
     }
 
     resource isolated function get userall() returns User[]|error {
-        stream<User, sql:Error?> Userstream = self.db->query(`SELECT * FROM users`);
-        return from User user in Userstream
-            select user;
+        User[]|error Users = db_fun:fetchUserCollections();
+        return Users;
     }
+
+    
     resource isolated function get users(string name) returns User[]|sql:Error|UserNotFound {
         stream<User, sql:Error?> result = self.db->query(`SELECT * FROM users WHERE name = ${name}`);
         User[]|sql:Error usersReturn = check from User user in result

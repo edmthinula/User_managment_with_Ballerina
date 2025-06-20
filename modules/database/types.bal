@@ -1,4 +1,3 @@
-// import ballerina/http;
 import ballerina/time;
 
 public type User record {|
@@ -14,10 +13,3 @@ public type UserCreate record {|
     string mobileNumber;
 |};
 
-// type DatabaseConfig record {|
-//     string user;
-//     string passsword;
-//     string database;
-//     string host;
-//     int post;
-// |};

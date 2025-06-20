@@ -8,7 +8,7 @@ service / on new http:Listener(9095) {
     # Fetch all User from the database.
     #
     # + return - All user|Error
-    resource isolated function get userall() returns db_module:User[]|error {
+    resource isolated function get allusers() returns db_module:User[]|error {
         db_module:User[]|error Users = db_module:fetchUserCollections();
         return Users;
     }
